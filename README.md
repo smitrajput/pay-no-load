@@ -1,42 +1,55 @@
 <p align="center"><img src="./src/logo.jpg" align="center"></p>
 <h1 align="center">pay-no-load</h1>
-<p><h2 align="center">A plugin for the Alethio ethereum lite-explorer.</h2></p> 
+<p><h3 align="center">A plugin for the Alethio Ethereum lite-explorer</h3></p> 
 
 ***
 
+## Setting up the lite-explorer and the plugin
+
 <img src="src/gifs/alethio-plugin.gif" alt="alethio-plugin" style="width:80%; margin-left: auto; margin-right: auto; display: block">
 
-## Getting started
-
-1. Clone the lite-explorer repo  :
-```git
-git clone https://github.com/Alethio/ethereum-lite-explorer.git
+1. Clone the lite-explorer repo, and run the following commands in your terminal, one by one :
+```javascript
+$ git clone https://github.com/Alethio/ethereum-lite-explorer.git
+$ cd ethereum-lite-explorer
+$ npm install
+$ cp config.default.json config.dev.json
 ```
 
-follow the steps given in the alethio lite explorer repo's README file to get it running.
-
-inside the lite explorer directory, clone the plugin github repo : 
-```git
-cd ethereum-lite-explorer
-git clone https://github.com/smitrajput/pay-no-load.git
+2. Now, in another terminal tab, clone the plugin github repo, inside *ethereum-lite-explorer* : 
+```javascript
+$ git clone https://github.com/smitrajput/pay-no-load.git
 ```
 
-go inside the plugin repo, install node packages and build the module:
-```
-cd pay-no-load
-npm install 
-npm run build 
+3. Make necessary modifications into `config.dev.json` if needed. You must also remove the version query strings `?v=#.#.#` from the "plugins" URIs.
+
+4. Start continuous build:
+`npm run watch`
+
+5. Now, in another terminal tab, *while inside ethereum-lite-explorer* install `cms-plugin-tool` and the plugin by running:
+```javascript
+$ npm i -g @alethio/cms-plugin-tool
+$ acp install ./pay-no-load
 ```
 
-include the plugin in the explorer by running the following command in the parent repo :
-```
-acp install pay-no-load
+
+4. Change into the plugin repo, install node packages and build the modules:
+```javascript
+$ cd pay-no-load
+$ npm install 
+$ npm run watch 
 ```
 
-inside the file  `config.dev.json`, add the module and page definations for loading the module :
-
-adding the plugin : 
+5. Install the plugin into the lite-explorer by running the following command *while inside ethereum-lite-explorer* :
+```javascript
+$ cd ..
+$ acp install ./pay-no-load
 ```
+
+6. Now, inside the file  `config.dev.json`, add the module and page definations for loading the module :
+
+Adding the plugin : 
+```json
 "plugins": {
 ...
     "plugin://aleth.io/eth-common": {
@@ -45,8 +58,8 @@ adding the plugin :
 ...},
 ```
 
-adding the page def : 
-```
+Adding the page definition : 
+```json
 {
     "def": "page://aleth.io/payts/profile-page",
     "children": {
@@ -54,11 +67,11 @@ adding the page def :
             { "def": "module://aleth.io/pay-no-load/profile" }
         ]
     }
-    }
+}
 ```
 
-adding icon to the homepage :
-```
+Adding icon to the homepage :
+```json
 {...
 "def": "page://aleth.io/dashboard",
 "children": {
@@ -68,19 +81,19 @@ adding icon to the homepage :
 ```
 
 ## Features
-
-### Displays
-1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
+***
+### Displays:
+#### 1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
 
 <img src="./src/gifs/Token-Contract-Details.gif" alt="Show Token Contract Details" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-2. All token balances for a given wallet address
+#### 2. All token balances for a given wallet address
 <img src="./src/gifs/Ethereum-Lite-Blockchain-Explorer-Account-Token-Balance.gif" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-3. Decode payloads of latest transactions from/to a contract address
+#### 3. Latest transactions from/to a contract address
 <img src="./src/gifs/Transaction-Decoding.gif" alt="Decode Txn from latest" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-4. Decoded payloads (parameters/arguments) of transactions given the transaction hash & the contract ABI.
+#### 4. *Decoded payloads (parameters/arguments) of transactions* [most IMPORTANT feature; hence the repo name ;-)]
 
 <hr />
 

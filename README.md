@@ -12,8 +12,6 @@ git clone https://github.com/Alethio/ethereum-lite-explorer.git
 cd ethereum-lite-explorer
 npm install
 cp config.default.json config.dev.json
-npm run watch
-
 ```
 
 2. Now, in another terminal tab, clone the plugin github repo, inside *ethereum-lite-explorer* : 
@@ -21,20 +19,32 @@ npm run watch
 git clone https://github.com/smitrajput/pay-no-load.git
 ```
 
-3. Change into the plugin repo, install node packages and build the module:
+3. Make necessary modifications into `config.dev.json` if needed. You must also remove the version query strings ?v=#.#.# from the "plugins" URIs.
+
+4. Start continuous build:
+`npm run watch`
+
+5. Now, in another terminal tab, *while inside ethereum-lite-explorer* install `cms-plugin-tool` and the plugin by running:
+```
+npm i -g @alethio/cms-plugin-tool
+acp install ./pay-no-load
+```
+
+
+4. Change into the plugin repo, install node packages and build the modules:
 ```
 cd pay-no-load
 npm install 
 npm run watch 
 ```
 
-4. Load the plugin into the lite-explorer by running the following command *while inside ethereum-lite-explorer* :
+5. Install the plugin into the lite-explorer by running the following command *while inside ethereum-lite-explorer* :
 ```
 cd ..
 acp install ./pay-no-load
 ```
 
-5. Now, inside the file  `config.dev.json`, add the module and page definations for loading the module :
+6. Now, inside the file  `config.dev.json`, add the module and page definations for loading the module :
 
 Adding the plugin : 
 ```
@@ -71,17 +81,17 @@ Adding icon to the homepage :
 ## Features
 
 ### Displays
-1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
+#### 1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
 
 <img src="./src/gifs/Token-Contract-Details.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-2. All token balances for a given wallet address
+#### 2. All token balances for a given wallet address
 <img src="./src/gifs/Ethereum-Lite-Blockchain-Explorer-Account-Token-Balance.gif" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-3. Latest transactions from/to a contract address
+#### 3. Latest transactions from/to a contract address
 <img src="./src/gifs/Transaction-Decoding.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-4. Decoded payloads (parameters/arguments) of transactions
+#### 4. Decoded payloads (parameters/arguments) of transactions
 
 <hr />
 

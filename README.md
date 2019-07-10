@@ -6,34 +6,37 @@
 
 ## Getting started
 
-1. Clone the lite-explorer repo  :
+1. Clone the lite-explorer repo, and run the following commands in your terminal, one by one :
 ```git
 git clone https://github.com/Alethio/ethereum-lite-explorer.git
+cd ethereum-lite-explorer
+npm install
+cp config.default.json config.dev.json
+npm run watch
+
 ```
 
-follow the steps given in the alethio lite explorer repo's README file to get it running.
-
-inside the lite explorer directory, clone the plugin github repo : 
+2. Now, in another terminal tab, clone the plugin github repo, inside *ethereum-lite-explorer* : 
 ```git
-cd ethereum-lite-explorer
 git clone https://github.com/smitrajput/pay-no-load.git
 ```
 
-go inside the plugin repo, install node packages and build the module:
+3. Change into the plugin repo, install node packages and build the module:
 ```
 cd pay-no-load
 npm install 
-npm run build 
+npm run watch 
 ```
 
-include the plugin in the explorer by running the following command in the parent repo :
+4. Load the plugin into the lite-explorer by running the following command *while inside ethereum-lite-explorer* :
 ```
-acp install pay-no-load
+cd ..
+acp install ./pay-no-load
 ```
 
-inside the file  `config.dev.json`, add the module and page definations for loading the module :
+5. Now, inside the file  `config.dev.json`, add the module and page definations for loading the module :
 
-adding the plugin : 
+Adding the plugin : 
 ```
 "plugins": {
 ...
@@ -43,7 +46,7 @@ adding the plugin :
 ...},
 ```
 
-adding the page def : 
+Adding the page definition : 
 ```
 {
     "def": "page://aleth.io/payts/profile-page",
@@ -55,7 +58,7 @@ adding the page def :
     }
 ```
 
-adding icon to the homepage :
+Adding icon to the homepage :
 ```
 {...
 "def": "page://aleth.io/dashboard",

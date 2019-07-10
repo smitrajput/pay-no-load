@@ -1,6 +1,6 @@
 <p align="center"><img src="./src/logo.jpg" align="center"></p>
 <h1 align="center">pay-no-load</h1>
-<p><h2 align="center">A plugin for the Alethio Ethereum lite-explorer.</h2></p> 
+<p><h2 align="center">A plugin for the Alethio Ethereum lite-explorer</h2></p> 
 
 ***
 
@@ -81,17 +81,17 @@ Adding icon to the homepage :
 ## Features
 
 ### Displays
-#### 1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
+#### 1. token contract metadata (i.e. total supply, symbol, decimals, etc.) 
 
 <img src="./src/gifs/Token-Contract-Details.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-#### 2. All token balances for a given wallet address
+#### 2. all token balances for a given wallet address
 <img src="./src/gifs/Ethereum-Lite-Blockchain-Explorer-Account-Token-Balance.gif" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-#### 3. Latest transactions from/to a contract address
+#### 3. latest transactions from/to a contract address
 <img src="./src/gifs/Transaction-Decoding.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-#### 4. Decoded payloads (parameters/arguments) of transactions
+#### 4. *decoded payloads (parameters/arguments) of transactions* [most IMPORTANT feature; hence the repo name ;-)]
 
 <hr />
 

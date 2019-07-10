@@ -1,10 +1,10 @@
 <p align="center"><img src="./src/logo.jpg" align="center"></p>
 <h1 align="center">pay-no-load</h1>
-<p><h2 align="center">A plugin for the Alethio ethereum lite-explorer.</h2></p> 
+<p><h2 align="center">A plugin for the Alethio Ethereum lite-explorer.</h2></p> 
 
 ***
 
-## Getting started
+## Setting up the lite-explorer and the plugin
 
 1. Clone the lite-explorer repo, and run the following commands in your terminal, one by one :
 ```git
@@ -19,7 +19,7 @@ cp config.default.json config.dev.json
 git clone https://github.com/smitrajput/pay-no-load.git
 ```
 
-3. Make necessary modifications into `config.dev.json` if needed. You must also remove the version query strings ?v=#.#.# from the "plugins" URIs.
+3. Make necessary modifications into `config.dev.json` if needed. You must also remove the version query strings `?v=#.#.#` from the "plugins" URIs.
 
 4. Start continuous build:
 `npm run watch`

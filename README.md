@@ -68,10 +68,17 @@ adding icon to the homepage :
 ## Features
 
 ### Displays
-1. token contract metadata (i.e. total supply, symbol, decimals, etc.) 
-2. all token balances for a given wallet address
-3. latest transactions from/to a contract address
-4. decoded payloads (parameters/arguments) of transactions
+1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
+
+<img src="./src/gifs/Token-Contract-Details.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
+
+2. All token balances for a given wallet address
+<img src="./src/gifs/Ethereum-Lite-Blockchain-Explorer-Account-Token-Balance.gif" style="width:70%; margin-left: auto; margin-right: auto; display: block">
+
+3. Latest transactions from/to a contract address
+<img src="./src/gifs/Transaction-Decoding.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
+
+4. Decoded payloads (parameters/arguments) of transactions
 
 <hr />
 

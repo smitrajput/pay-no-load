@@ -1,6 +1,7 @@
 import React from "react";
 require('isomorphic-fetch');
 import Contract from "./contract";
+import { Link } from "plugin-api/component/Link";
 
 const plugin = {
     init(config:any, api:any, logger:any, publicPath:any) {
@@ -15,14 +16,7 @@ const plugin = {
             // It can either be a component class or a functional component
             getContentComponent: async () => (props:any) => {
             return (
-            <div>Hello, {props.name}!
-            <form>
-            <label>
-                Contract Address:
-                <input type="text" name="name" onChange={(event)=>{this.http('https://api.aleth.io/v1/contracts/0x2af47a65da8CD66729b4209C22017d6A5C2d2400/token')}}/>
-            </label>
-            <input type="submit" value="Submit"/>
-            </form>
+            <div>
             <Contract />
             </div>
             )
@@ -34,6 +28,26 @@ const plugin = {
             getContentProps: (cmsProps:any) => ({ name: "Joe" })
         });
 
+        api.addModuleDef("module://aleth.io/payts/home-link", {
+            // We don't use context for now, so it's an empty object
+            contextType: {},
+            dataAdapters: [],
+            getContentComponent: async() => () => {
+            return (
+                <div>
+                    To go to Contract Account Explorer, <br />
+                    <Link to="page://aleth.io/payts/profile-page">Click here</Link>
+                    {/* <a href="/profile/">Click me now</a> */}
+
+
+                </div>
+
+            )
+            },
+            getContentProps: (cmsProps:any) => ({ name: "Joe" })
+
+        });
+
         api.addPageDef("page://aleth.io/payts/profile-page", {
             contextType: {},
             paths: {
@@ -42,14 +56,18 @@ const plugin = {
                 // resolves to an empty context object, which we won't use for now
                 "/profile": (params:any) => ({})
             },
+            buildCanonicalUrl: ({ }) => `/profile/`,
             // Function that resolves to a React component class/ functional component. It can also be async.
             getPageTemplate: () => ({ slots }) => <div>
-            <h1>User profile</h1>
+            <h1 style={{textAlign:"center", color:"black"}}>Contract Account Explorer</h1>
             { /* We'll define a single named slot ("content"), where the CMS will inject our module */ }
             { slots && slots["content"] }
         </div>
             // getPageTemplate: () => ({ slots }) => console.log('bye')
+
         });
+
+
     },
 
     getAvailableLocales() {

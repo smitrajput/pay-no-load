@@ -4,6 +4,8 @@
 
 ***
 
+<img src="src/gifs/alethio-plugin.gif" alt="alethio-plugin" style="width:80%; margin-left: auto; margin-right: auto; display: block">
+
 ## Getting started
 
 1. Clone the lite-explorer repo  :
@@ -70,15 +72,15 @@ adding icon to the homepage :
 ### Displays
 1. Token contract metadata (i.e. total supply, symbol, decimals, etc.) 
 
-<img src="./src/gifs/Token-Contract-Details.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
+<img src="./src/gifs/Token-Contract-Details.gif" alt="Show Token Contract Details" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
 2. All token balances for a given wallet address
 <img src="./src/gifs/Ethereum-Lite-Blockchain-Explorer-Account-Token-Balance.gif" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-3. Latest transactions from/to a contract address
-<img src="./src/gifs/Transaction-Decoding.gif" alt="Waffle-CLI_apiKeySetting" style="width:70%; margin-left: auto; margin-right: auto; display: block">
+3. Decode payloads of latest transactions from/to a contract address
+<img src="./src/gifs/Transaction-Decoding.gif" alt="Decode Txn from latest" style="width:70%; margin-left: auto; margin-right: auto; display: block">
 
-4. Decoded payloads (parameters/arguments) of transactions
+4. Decoded payloads (parameters/arguments) of transactions given the transaction hash & the contract ABI.
 
 <hr />
 

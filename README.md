@@ -3,10 +3,11 @@
 <p><h3 align="center">A plugin for the Alethio Ethereum lite-explorer</h3></p> 
 
 ***
+<p align="center">:tada::tada::tada::tada:</p>
+<img src="src/gifs/alethio-plugin.gif" alt="alethio-plugin" style="width:80%; margin-left: auto; margin-right: auto; display: block">
 
 ## Setting up the lite-explorer and the plugin
 
-<img src="src/gifs/alethio-plugin.gif" alt="alethio-plugin" style="width:80%; margin-left: auto; margin-right: auto; display: block">
 
 1. Clone the lite-explorer repo, and run the following commands in your terminal, one by one :
 ```javascript

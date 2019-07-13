@@ -105,7 +105,7 @@ $ acp install ./pay-no-load
    npm start
    ```
 
-9. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
+9. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Click on `Click here` below the search bar, to access the pay-no-load plugin.
 
 ## Features
 

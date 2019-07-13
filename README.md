@@ -84,25 +84,18 @@ Adding the page definition :
         { "def" : "module://aleth.io/pay-no-load/home-link" }, ...
 ``` -->
 
-6. Clone the plugin repo, install its dependencies and link it to the explorer:
+6. Clone the plugin repo, install its dependencies, change to parent directory, link it to the explorer and start the server:
 
 ```
 git clone https://github.com/smitrajput/pay-no-load.git
 cd pay-no-load
 npm i
-acp link pay-no-load
-```
-
-7. Change into eparent directory and run the server
-
-```
 cd ..
+acp link pay-no-load
 npm start
 ```
 
-The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page.
-
-8. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
+7. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
 
 ## Features
 

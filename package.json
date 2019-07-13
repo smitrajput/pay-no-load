@@ -6,6 +6,7 @@
   "description": "<plugin_description>",
   "main": "dist/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "build": "npm run clean && npm run build-js-prod",
     "build-dev": "npm run clean && npm run build-js-dev",
     "watch": "webpack-runner --config=./webpack.config.dev.js --watch",
@@ -17,6 +18,7 @@
   "author": "<publisher>",
   "license": "UNLICENSED",
   "devDependencies": {
+    "@types/isomorphic-fetch": "0.0.35",
     "@types/react": "^16.8.12",
     "@types/react-dom": "^16.8.3",
     "@types/webpack-env": "^1.13.0",

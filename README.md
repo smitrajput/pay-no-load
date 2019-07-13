@@ -84,13 +84,10 @@ Adding the page definition :
         { "def" : "module://aleth.io/pay-no-load/home-link" }, ...
 ``` -->
 
-6. Clone the plugin repo, install its dependencies, change to parent directory, link it to the explorer and start the server:
+6. Clone the plugin repo, link it to the explorer and start the server:
 
 ```
 git clone https://github.com/smitrajput/pay-no-load.git
-cd pay-no-load
-npm i
-cd ..
 acp link pay-no-load
 npm start
 ```

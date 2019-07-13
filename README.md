@@ -21,13 +21,21 @@
 2. Remove the version query strings `?v=#.#.#` from the "plugins" URIs in `config.dev.json`.
 
 3. Add the following line between the `<head>...</head>` tags in `./dist/index.html` (This is because our plugin uses `semantic-ui-react`):
-    ```html
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
-    ```
-4. Build the lite-explorer:
+   ```html
+   <link
+     rel="stylesheet"
+     href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+   />
+   ```
+4. Add these extensions for your respective browsers to allow Cross-Origin Access:
+
+   - Chrome: [Allow CORS](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
+   - Firefox: [CORS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/cors-everywhere/?src=search)
+
+5. Build the lite-explorer:
    `npm run build`
 
-5. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
+6. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
 
    ```
    npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
@@ -53,7 +61,7 @@ $ cd ..
 $ acp install ./pay-no-load
 ``` -->
 
-6. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
+7. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
 
    Adding the plugin :
 
@@ -90,7 +98,7 @@ $ acp install ./pay-no-load
                "def": "context://aleth.io/dashboard/latestBlockRange",
    ```
 
-7. Clone the plugin repo, link it to the explorer and start the server:
+8. Clone the plugin repo, link it to the explorer and start the server:
 
    ```
    git clone https://github.com/smitrajput/pay-no-load.git
@@ -98,7 +106,7 @@ $ acp install ./pay-no-load
    npm start
    ```
 
-8. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
+9. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
 
 ## Features
 

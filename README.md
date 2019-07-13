@@ -84,10 +84,25 @@ Adding the page definition :
         { "def" : "module://aleth.io/pay-no-load/home-link" }, ...
 ``` -->
 
-6. While still _inside ethereum-lite-explorer_ run:
-   `npm start`. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page.
+6. Clone the plugin repo, install its dependencies and link it to the explorer:
 
-7. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
+```
+git clone https://github.com/smitrajput/pay-no-load.git
+cd pay-no-load
+npm i
+acp link pay-no-load
+```
+
+7. Change into eparent directory and run the server
+
+```
+cd ..
+npm start
+```
+
+The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page.
+
+8. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
 
 ## Features
 
@@ -112,3 +127,4 @@ Adding the page definition :
 <hr />
 
 <p align="center">Made with ❤️ by <a href="https://www.linkedin.com/in/smit-r-417517139/">Smit Rajput</a> • <a href="https://www.linkedin.com/in/akash981/"> Akash</a> • <a href="https://www.linkedin.com/in/tezan-sahu-a85802163/">Tezan Sahu</a> </a>
+```

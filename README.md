@@ -27,7 +27,7 @@
      href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
    />
    ```
-4. Add these extensions for your respective browsers to allow Cross-Origin Access:
+4. Add these extensions for your respective browsers, and turn them `ON` to allow Cross-Origin Access:
 
    - Chrome: [Allow CORS](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
    - Firefox: [CORS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/cors-everywhere/?src=search)

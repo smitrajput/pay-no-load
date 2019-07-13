@@ -32,7 +32,7 @@ $ git clone https://github.com/smitrajput/pay-no-load.git
 5. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
 
 ```javascript
-$ npm i -g @alethio/cms-plugin-tool@1.0.0-beta.2
+$ npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
 $ acp install --dev \
     @alethio/explorer-plugin-eth-common \
     @alethio/explorer-plugin-eth-lite \

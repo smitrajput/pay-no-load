@@ -67,11 +67,10 @@ $ acp install ./pay-no-load
 
    ```json
    "plugins": {
-   ...
        "plugin://aleth.io/eth-common": {
        },
        "plugin://aleth.io/payts": {}
-   ...},
+      },
    ```
 
    Adding the page definition :

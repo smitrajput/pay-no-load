@@ -11,12 +11,12 @@
 
 1. Clone the lite-explorer repo, and run the following commands in your terminal, one by one :
 
-```javascript
-$ git clone https://github.com/Alethio/ethereum-lite-explorer.git
-$ cd ethereum-lite-explorer
-$ npm install
-$ cp config.default.json config.dev.json
-```
+   ```javascript
+   $ git clone https://github.com/Alethio/ethereum-lite-explorer.git
+   $ cd ethereum-lite-explorer
+   $ npm install
+   $ cp config.default.json config.dev.json
+   ```
 
 2. Remove the version query strings `?v=#.#.#` from the "plugins" URIs in `config.dev.json`.
 
@@ -25,14 +25,14 @@ $ cp config.default.json config.dev.json
 
 4. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
 
-```
-npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
-acp install --dev \
-    @alethio/explorer-plugin-eth-common \
-    @alethio/explorer-plugin-eth-lite \
-    @alethio/explorer-plugin-3box
-acp install --dev smitrajput/pay-no-load
-```
+   ```
+   npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
+   acp install --dev \
+       @alethio/explorer-plugin-eth-common \
+       @alethio/explorer-plugin-eth-lite \
+       @alethio/explorer-plugin-3box
+   acp install --dev smitrajput/pay-no-load
+   ```
 
 <!-- 4. Change into the plugin repo, install node packages and build the modules:
 
@@ -51,46 +51,48 @@ $ acp install ./pay-no-load
 
 5. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
 
-Adding the plugin :
+   Adding the plugin :
 
-```json
-"plugins": {
-...
-    "plugin://aleth.io/eth-common": {
-    },
-    "plugin://aleth.io/payts": {}
-...},
-```
+   ```json
+   "plugins": {
+   ...
+       "plugin://aleth.io/eth-common": {
+       },
+       "plugin://aleth.io/payts": {}
+   ...},
+   ```
 
-Adding the page definition :
+   Adding the page definition :
 
-```json
-{
-  "def": "page://aleth.io/payts/profile-page",
-  "children": {
-    "content": [{ "def": "module://aleth.io/payts/profile" }]
-  }
-}
-```
+   ```json
+   {
+     "def": "page://aleth.io/payts/profile-page",
+     "children": {
+       "content": [{ "def": "module://aleth.io/payts/profile" }]
+     }
+   }
+   ```
 
-<!-- Adding icon to the homepage :
+   Adding a clickable on the home page by inserting the line `{ "def": "module://aleth.io/payts/home-link" },` in:
 
-```json
-{...
-"def": "page://aleth.io/dashboard",
-"children": {
-    "content": [
-        { "def": "module://aleth.io/search" },
-        { "def" : "module://aleth.io/pay-no-load/home-link" }, ...
-``` -->
+   ```json
+   {
+         "def": "page://aleth.io/dashboard",
+         "children": {
+           "content": [
+             { "def": "module://aleth.io/search" },
+             { "def": "module://aleth.io/payts/home-link" },
+             {
+               "def": "context://aleth.io/dashboard/latestBlockRange",
+   ```
 
 6. Clone the plugin repo, link it to the explorer and start the server:
 
-```
-git clone https://github.com/smitrajput/pay-no-load.git
-acp link pay-no-load
-npm start
-```
+   ```
+   git clone https://github.com/smitrajput/pay-no-load.git
+   acp link pay-no-load
+   npm start
+   ```
 
 7. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
 

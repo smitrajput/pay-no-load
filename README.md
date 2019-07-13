@@ -26,12 +26,12 @@ $ cp config.default.json config.dev.json
 4. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
 
 ```
-$ npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
-$ acp install --dev \
+npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
+acp install --dev \
     @alethio/explorer-plugin-eth-common \
     @alethio/explorer-plugin-eth-lite \
     @alethio/explorer-plugin-3box
-    smitrajput/pay-no-load
+acp install --dev smitrajput/pay-no-load
 ```
 
 <!-- 4. Change into the plugin repo, install node packages and build the modules:

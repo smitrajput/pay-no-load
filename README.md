@@ -55,7 +55,7 @@ $ cd ..
 $ acp install ./pay-no-load
 ``` -->
 
-6. Now, inside the file `config.dev.json`, add the module and page definations for loading the module :
+5. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
 
 Adding the plugin :
 
@@ -89,6 +89,11 @@ Adding the page definition :
         { "def": "module://aleth.io/search" },
         { "def" : "module://aleth.io/pay-no-load/home-link" }, ...
 ``` -->
+
+6. While still _inside ethereum-lite-explorer_ run:
+   `npm start`. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page.
+
+7. Go to URL `http://localhost:3000/profile` to access the pay-no-load plugin.
 
 ## Features
 

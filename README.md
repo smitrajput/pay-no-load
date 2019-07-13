@@ -18,20 +18,14 @@ $ npm install
 $ cp config.default.json config.dev.json
 ```
 
-2. Now, in another terminal tab, clone the plugin github repo, inside _ethereum-lite-explorer_ :
+2. Remove the version query strings `?v=#.#.#` from the "plugins" URIs in `config.dev.json`.
 
-```javascript
-$ git clone https://github.com/smitrajput/pay-no-load.git
-```
-
-3. Remove the version query strings `?v=#.#.#` from the "plugins" URIs in `config.dev.json`.
-
-4. Build the lite-explorer:
+3. Build the lite-explorer:
    `npm run build`
 
-5. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
+4. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
 
-```javascript
+```
 $ npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
 $ acp install --dev \
     @alethio/explorer-plugin-eth-common \
@@ -40,13 +34,13 @@ $ acp install --dev \
     smitrajput/pay-no-load
 ```
 
-4. Change into the plugin repo, install node packages and build the modules:
+<!-- 4. Change into the plugin repo, install node packages and build the modules:
 
 ```javascript
 $ cd pay-no-load
 $ npm install
 $ npm run build
-```
+``` -->
 
 <!-- 5. Install the plugin into the lite-explorer by running the following command _while inside ethereum-lite-explorer_ :
 

@@ -20,18 +20,11 @@
 
 2. Remove the version query strings `?v=#.#.#` from the "plugins" URIs in `config.dev.json`.
 
-3. Add the following line between the `<head>...</head>` tags in `./dist/index.html` (This is because our plugin uses `semantic-ui-react`):
-   ```html
-   <link
-     rel="stylesheet"
-     href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
-   />
-   ```
 
-4. Build the lite-explorer:
+3. Build the lite-explorer:
    `npm run build`
 
-5. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
+4. Now, in another terminal tab, _while inside ethereum-lite-explorer_ install `cms-plugin-tool` and the plugins by running:
 
    ```
    npm i -g @alethio/cms-plugin-tool@1.0.0-beta.3
@@ -42,24 +35,9 @@
    acp install --dev smitrajput/pay-no-load
    ```
 
-<!-- 4. Change into the plugin repo, install node packages and build the modules:
+7. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
 
-```javascript
-$ cd pay-no-load
-$ npm install
-$ npm run build
-``` -->
-
-<!-- 5. Install the plugin into the lite-explorer by running the following command _while inside ethereum-lite-explorer_ :
-
-```javascript
-$ cd ..
-$ acp install ./pay-no-load
-``` -->
-
-6. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
-
-   Adding the plugin and your Alethio API Key (Can be obtained [here](https://developers.aleth.io/)):
+   Add the plugin and your Alethio API Key (Can be obtained [here](https://developers.aleth.io/)):
 
    ```json
    "plugins": {
@@ -71,7 +49,7 @@ $ acp install ./pay-no-load
       },
    ```
 
-   Adding the page definition :
+   Add the page definition :
 
    ```json
    {
@@ -82,7 +60,7 @@ $ acp install ./pay-no-load
    }
    ```
 
-   Adding a clickable on the home page by inserting the line `{ "def": "module://aleth.io/payts/home-link" },` in:
+   Add a clickable on the home page by inserting the line `{ "def": "module://aleth.io/payts/home-link" },` in:
 
    ```json
    {
@@ -95,15 +73,7 @@ $ acp install ./pay-no-load
                "def": "context://aleth.io/dashboard/latestBlockRange",
    ```
 
-7. Clone the plugin repo, link it to the explorer and start the server:
-
-   ```
-   git clone https://github.com/smitrajput/pay-no-load.git
-   acp link pay-no-load
-   npm start
-   ```
-
-8. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Click on `Click here` below the search bar, to access the pay-no-load plugin.
+8. Enter `npm run start` in the terminal while inside the `ethereum-lite-explorer` directory. The page with URL `http://localhost:3000/` will open automatically, showing the lite-explorer home page. Click on `Click here` below the search bar, to access the pay-no-load plugin.
 
 ## Features
 

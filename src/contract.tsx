@@ -232,8 +232,8 @@ class Contract extends Component<MyProps, MyState>{
 			}
 			else{
 				contractTokenDetails =
-				<Container style={{margin:10}}>
-					<Header inverted as="h4">Error: </Header> Address is not a token contract address!
+				<Container style={{margin:10, color: #DC143C}}>
+					<Header as="h4">Error: </Header> Address is not a token contract address!
 				</Container>
 
 			}
@@ -249,14 +249,22 @@ class Contract extends Component<MyProps, MyState>{
 
 		let accountTokenDetails;
 		if(this.state.token_balances != ""){
-			accountTokenDetails =
-			<Container style={{margin:10}}>
-				<table className="ui definition table">
-					<tbody className="">
-						{rows}
-					</tbody>
-				</table>
-			</Container>
+			if(this.state.token_balances["errors"] == undefined){
+				accountTokenDetails =
+				<Container style={{margin:10}}>
+					<table className="ui definition table">
+						<tbody className="">
+							{rows}
+						</tbody>
+					</table>
+				</Container>
+			}
+			else{
+				accountTokenDetails =
+				<Container style={{margin:10, color: #DC143C}}>
+					<Header as="h4">Error: </Header> Address is not valid!
+				</Container>
+			}				
 		}
 		else{
 			accountTokenDetails = <Container style={{margin:10}}></Container>

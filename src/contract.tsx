@@ -13,6 +13,7 @@ const moment = require("moment");
 // let txn;
 type MyProps = { };
 type MyState = {
+				api_key: string,
 				title: string,
 				contract_details:string,
 				token_details:any,
@@ -33,9 +34,10 @@ type MyState = {
 
 class Contract extends Component<MyProps, MyState>{
 
-	constructor(props:any){
-		super(props);
+	constructor(api_key: string){
+		super(api_key);
 		this.state ={
+			api_key: api_key,
             title:'',
             tokenDetail: '',
 			contract_details:'',
@@ -52,26 +54,27 @@ class Contract extends Component<MyProps, MyState>{
 			raw_data:'',
 			decodedDataLatest:{"params":[]}
 		};
-		this.getContractDetails.bind(this);
+		// this.getContractDetails.bind(this);
 		// this._renderAccountTokenBalances.bind(this);
+		console.log(api_key);
 	}
 
 
-	getContractDetails = async () => {
-		console.log("this is contract. hurray");
-		var request = 'https://api.aleth.io/v1/contracts/0x2af47a65da8CD66729b4209C22017d6A5C2d2400'
-		await fetch(request, {
-			method: 'GET',
-			headers: {
-				'username':'main_k5ua5idae7skpuciub5afanpxys3q',
-			}
-		})
-		.then(response => response.json())
-		.then(json => {
-			console.log(json);
-			this.setState({contract_details:JSON.stringify(json)})
-		})
-	}
+	// getContractDetails = async () => {
+	// 	console.log("this is contract. hurray");
+	// 	var request = 'https://api.aleth.io/v1/contracts/0x2af47a65da8CD66729b4209C22017d6A5C2d2400'
+	// 	await fetch(request, {
+	// 		method: 'GET',
+	// 		headers: {
+	// 			'username':this.state.api_key,
+	// 		}
+	// 	})
+	// 	.then(response => response.json())
+	// 	.then(json => {
+	// 		console.log(json);
+	// 		this.setState({contract_details:JSON.stringify(json)})
+	// 	})
+	// }
 
 	getTokenDetails = async () => {
 		// console.log("this is contract. hurray");
@@ -79,7 +82,7 @@ class Contract extends Component<MyProps, MyState>{
 		await fetch(request, {
 			method: 'GET',
 			headers: {
-				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
+				'Authorization':btoa(this.state.api_key),
 			}
 		})
 		.then(response => response.json())
@@ -119,7 +122,7 @@ class Contract extends Component<MyProps, MyState>{
 			await fetch(request, {
 			method: 'GET',
 			headers: {
-				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
+				'Authorization':btoa(this.state.api_key),
 			}
 		})
 		.then(response => response.json())
@@ -164,7 +167,7 @@ class Contract extends Component<MyProps, MyState>{
 			await fetch(request, {
 			method: 'GET',
 			headers: {
-				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
+				'Authorization':btoa(this.state.api_key),
 			}
 		})
 		.then(response => response.json())
@@ -213,7 +216,7 @@ class Contract extends Component<MyProps, MyState>{
 			await fetch(request, {
 			method: 'GET',
 			headers: {
-				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
+				'Authorization':btoa(this.state.api_key),
 				}
 			})
 			.then(response => response.json())

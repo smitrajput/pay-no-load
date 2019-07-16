@@ -2,6 +2,9 @@ import React from "react";
 require("isomorphic-fetch");
 import Contract from "./contract";
 import { Link } from "plugin-api/component/Link";
+import { CssLoader }  from "@puzzl/browser/lib/network/CssLoader";
+
+new CssLoader(document).load("//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css").catch(e => console.error(e));
 
 const plugin = {
   init(config: any, api: any, logger: any, publicPath: any) {

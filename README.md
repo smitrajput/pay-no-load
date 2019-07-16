@@ -59,13 +59,15 @@ $ acp install ./pay-no-load
 
 6. Now, inside the file `config.dev.json` in the lite-explorer repo, add the module and page definations for loading the module :
 
-   Adding the plugin :
+   Adding the plugin and your Alethio API Key (Can be obtained [here](https://developers.aleth.io/)):
 
    ```json
    "plugins": {
        "plugin://aleth.io/eth-common": {
        },
-       "plugin://aleth.io/payts": {}
+       "plugin://aleth.io/payts": {
+            "alethio_api_key": "your_API_key"
+       }
       },
    ```
 

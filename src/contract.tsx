@@ -232,7 +232,7 @@ class Contract extends Component<MyProps, MyState>{
 			}
 			else{
 				contractTokenDetails =
-				<Container style={{margin:10, color: #DC143C}}>
+				<Container style={{margin:10, color: "#DC143C"}}>
 					<Header as="h4">Error: </Header> Address is not a token contract address!
 				</Container>
 
@@ -261,7 +261,7 @@ class Contract extends Component<MyProps, MyState>{
 			}
 			else{
 				accountTokenDetails =
-				<Container style={{margin:10, color: #DC143C}}>
+				<Container style={{margin:10, color: "#DC143C"}}>
 					<Header as="h4">Error: </Header> Address is not valid!
 				</Container>
 			}				

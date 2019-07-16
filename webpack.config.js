@@ -13,7 +13,7 @@ function getConfig(isProduction) {
     var plugins = [
         new ForkTsCheckerWebpackPlugin({
             tsconfig: path.resolve(".", "tsconfig.json"),
-            tslint: path.resolve(".", isProduction ? "tslint.prod.json" : "tslint.json"),
+            // tslint: path.resolve(".", isProduction ? "tslint.prod.json" : "tslint.json"),
             async: false
         }),
         // These are preprocessor constants which are replaced inline (that's why the extra quotes)

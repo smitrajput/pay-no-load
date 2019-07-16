@@ -1,2 +1,0 @@
-(window["webpackJsonp_aleth_io_payts"]=window["webpackJsonp_aleth_io_payts"]||[]).push([[1],{"9jCR":function(o){o.exports=JSON.parse('{"general.todo":"TODO"}')}}]);
-//# sourceMappingURL=ef7f8185b904e9c33b31.bundle.js.map

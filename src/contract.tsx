@@ -74,12 +74,12 @@ class Contract extends Component<MyProps, MyState>{
 	}
 
 	getTokenDetails = async () => {
-		console.log("this is contract. hurray");
+		// console.log("this is contract. hurray");
 		var request = `https://api.aleth.io/v1/tokens/${this.state.token_contract_address}`
 		await fetch(request, {
 			method: 'GET',
 			headers: {
-				'username':'main_k5ua5idae7skpuciub5afanpxys3q',
+				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
 			}
 		})
 		.then(response => response.json())
@@ -119,7 +119,7 @@ class Contract extends Component<MyProps, MyState>{
 			await fetch(request, {
 			method: 'GET',
 			headers: {
-				'username':'main_k5ua5idae7skpuciub5afanpxys3q',
+				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
 			}
 		})
 		.then(response => response.json())
@@ -164,7 +164,7 @@ class Contract extends Component<MyProps, MyState>{
 			await fetch(request, {
 			method: 'GET',
 			headers: {
-				'username':'main_k5ua5idae7skpuciub5afanpxys3q',
+				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
 			}
 		})
 		.then(response => response.json())
@@ -213,7 +213,7 @@ class Contract extends Component<MyProps, MyState>{
 			await fetch(request, {
 			method: 'GET',
 			headers: {
-				'username':'main_k5ua5idae7skpuciub5afanpxys3q',
+				'Authorization':btoa('main_k5ua5idae7skpuciub5afanpxys3q'),
 				}
 			})
 			.then(response => response.json())

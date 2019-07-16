@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Form, Button, Header, Segment, Table, Label } from 'semantic-ui-react'
-// import { addABI, decodeMethod } from 'abi-decoder';
-// import abiDecoder from 'abi-decoder';
 const abiDecoder = require('abi-decoder');
-// import { array } from "prop-types";
 const moment = require("moment");
-// import Layout from '../../components/Layout.js';
-// import factory from '../../ethereum/factory';
-// import web3 from '../../ethereum/web3';
-// import { Router } from '../../routes';
 
-// let txn;
 type MyProps = { };
 type MyState = {
 				api_key: string,
@@ -29,7 +21,6 @@ type MyState = {
 				raw_data:any,
 				tokenDetail: any
 				decodedDataLatest: any
-				// transactions:any
 				};
 
 class Contract extends Component<MyProps, MyState>{
@@ -54,30 +45,10 @@ class Contract extends Component<MyProps, MyState>{
 			raw_data:'',
 			decodedDataLatest:{"params":[]}
 		};
-		// this.getContractDetails.bind(this);
-		// this._renderAccountTokenBalances.bind(this);
 		console.log(api_key);
 	}
 
-
-	// getContractDetails = async () => {
-	// 	console.log("this is contract. hurray");
-	// 	var request = 'https://api.aleth.io/v1/contracts/0x2af47a65da8CD66729b4209C22017d6A5C2d2400'
-	// 	await fetch(request, {
-	// 		method: 'GET',
-	// 		headers: {
-	// 			'username':this.state.api_key,
-	// 		}
-	// 	})
-	// 	.then(response => response.json())
-	// 	.then(json => {
-	// 		console.log(json);
-	// 		this.setState({contract_details:JSON.stringify(json)})
-	// 	})
-	// }
-
 	getTokenDetails = async () => {
-		// console.log("this is contract. hurray");
 		var request = `https://api.aleth.io/v1/tokens/${this.state.token_contract_address}`
 		await fetch(request, {
 			method: 'GET',
@@ -93,7 +64,6 @@ class Contract extends Component<MyProps, MyState>{
 	}
 
 	getTokenBalance = async () => {
-		// console.log("this is contract. hurray");
 		let url = `https://web3api.io/api/v1/addresses/${this.state.account_address}/tokens`;
 		let api_key = "UAK85fcd3c978f3c11801d9dbb5c989a815";
 		let data;
@@ -115,8 +85,6 @@ class Contract extends Component<MyProps, MyState>{
 	}
 
 	getTransactions = async () => {
-		// let jsonData;
-		// let data;
 		try{
 			var request = `https://api.aleth.io/v1/contracts/${this.state.contract_address}/transactions`
 			await fetch(request, {
@@ -128,8 +96,6 @@ class Contract extends Component<MyProps, MyState>{
 		.then(response => response.json())
 		.then(jsonData => {
 			console.log(jsonData["data"]);
-			// this.setState({transactions:(jsonData["data"])})
-			// console.log(this.state.transactions);
 			this.setState({transactions:jsonData["data"]})
 		})
 		}
@@ -140,15 +106,11 @@ class Contract extends Component<MyProps, MyState>{
 	}
 
 	decodeParams = async () => {
-		// console.log(typeof(this.state.contract_abi))
-		// console.log(typeof((this.state.contract_abi)))
 		const testABI = JSON.parse(this.state.contract_abi) ;
-		// const testABI = [{"inputs": [{"type": "address", "name": ""}], "constant": true, "name": "isInstantiation", "payable": false, "outputs": [{"type": "bool", "name": ""}], "type": "function"}, {"inputs": [{"type": "address[]", "name": "_owners"}, {"type": "uint256", "name": "_required"}, {"type": "uint256", "name": "_dailyLimit"}], "constant": false, "name": "create", "payable": false, "outputs": [{"type": "address", "name": "wallet"}], "type": "function"}, {"inputs": [{"type": "address", "name": ""}, {"type": "uint256", "name": ""}], "constant": true, "name": "instantiations", "payable": false, "outputs": [{"type": "address", "name": ""}], "type": "function"}, {"inputs": [{"type": "address", "name": "creator"}], "constant": true, "name": "getInstantiationCount", "payable": false, "outputs": [{"type": "uint256", "name": ""}], "type": "function"}, {"inputs": [{"indexed": false, "type": "address", "name": "sender"}, {"indexed": false, "type": "address", "name": "instantiation"}], "type": "event", "name": "ContractInstantiation", "anonymous": false}];
 		console.log("Test API ",testABI);
 		abiDecoder.addABI(testABI);
 		const testData = this.state.raw_data;
-		// const testData = '0x53d9d9100000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000a6d9c5f7d4de3cef51ad3b7235d79ccc95114de5000000000000000000000000a6d9c5f7d4de3cef51ad3b7235d79ccc95114daa';
-		// console.log(typeof(testABI))
+
 		console.log("contract abi  : ", testABI);
 		console.log("raw data : ", testData);
 
@@ -159,9 +121,6 @@ class Contract extends Component<MyProps, MyState>{
 	}
 
 	getTransactionAndDecode = async () => {
-		// let jsonData;
-		// let data;
-		// await this.decodeParams();
 		try{
 			var request = `https://api.aleth.io/v1/transactions/${this.state.transaction_hash}`
 			await fetch(request, {
@@ -173,11 +132,10 @@ class Contract extends Component<MyProps, MyState>{
 		.then(response => response.json())
 		.then(jsonData => {
 			console.log(jsonData);
-			// this.setState({transactions:(jsonData["data"])})
-			// console.log(this.state.transactions);
+
 			this.setState({transaction_details:JSON.stringify(jsonData)})
 			this.setState({raw_data:jsonData['data']['attributes']['msgPayload']['raw']})
-			// this.setState.raw_data = (jsonData['data']['attributes']['msgPayload']['raw'])
+
 			this.decodeParams();
 		})
 		}
@@ -187,30 +145,8 @@ class Contract extends Component<MyProps, MyState>{
 		};
 	}
 
-	// _renderAccountTokenBalances = async () => {
-	// 	console.log(this.state.token_balances)
-	// 	if(this.state.token_balances != null){
-	// 		return this.state.token_balances.map((tokenDetails: any, index: any) => {
-	// 			let {address, holder, amount, decimals, name, symbol, isERC20, isERC721, isERC777, isERC884, isERC998} = tokenDetails;
-	// 			return(
-	// 				<tr key={address} className="">
-	// 					<td className="">{name} [{symbol}]</td>
-	// 					<td className="">{amount*Math.pow(10, -1 * decimals)}</td>
-	// 				</tr>
-	// 				// <Table.Row key={address}>
-	// 				// 	<Table.Cell>{name} [{symbol}]</Table.Cell>
-	// 				// 	{/* <Table.Cell>{symbol}</Table.Cell> */}
-	// 				// 	<Table.Cell>{amount*Math.pow(10, -1 * decimals)}</Table.Cell>
-	// 				// </Table.Row>
-	// 			)
-	// 		})
-	// 	}
-	// }
 	decodeFromLatest = async(txnDetails: any) => {
-		// let jsonData;
-		// let data;
-		// await this.decodeParams();
-		// try{
+		try{
 			console.log(txnDetails)
 			var request = `https://api.aleth.io/v1/transactions/${txnDetails.id}`
 			await fetch(request, {
@@ -223,20 +159,13 @@ class Contract extends Component<MyProps, MyState>{
 			.then(jsonData => {
 				console.log(jsonData);
 
-				// this.setState({})
-				// this.setState({transactions:(jsonData["data"])})
-				// console.log(this.state.transactions);
-				// Contract.setState({transaction_details:JSON.stringify(jsonData)})
 				this.setState({raw_data:jsonData['data']['attributes']['msgPayload']['raw']})
-				// this.setState.raw_data = (jsonData['data']['attributes']['msgPayload']['raw'])
-				// this.decodeParams();
 				const testABI = JSON.parse(this.state.contract_abi) ;
-				// const testABI = [{"inputs": [{"type": "address", "name": ""}], "constant": true, "name": "isInstantiation", "payable": false, "outputs": [{"type": "bool", "name": ""}], "type": "function"}, {"inputs": [{"type": "address[]", "name": "_owners"}, {"type": "uint256", "name": "_required"}, {"type": "uint256", "name": "_dailyLimit"}], "constant": false, "name": "create", "payable": false, "outputs": [{"type": "address", "name": "wallet"}], "type": "function"}, {"inputs": [{"type": "address", "name": ""}, {"type": "uint256", "name": ""}], "constant": true, "name": "instantiations", "payable": false, "outputs": [{"type": "address", "name": ""}], "type": "function"}, {"inputs": [{"type": "address", "name": "creator"}], "constant": true, "name": "getInstantiationCount", "payable": false, "outputs": [{"type": "uint256", "name": ""}], "type": "function"}, {"inputs": [{"indexed": false, "type": "address", "name": "sender"}, {"indexed": false, "type": "address", "name": "instantiation"}], "type": "event", "name": "ContractInstantiation", "anonymous": false}];
+				
 				console.log("Test API ",testABI);
 				abiDecoder.addABI(testABI);
 				const testData = this.state.raw_data;
-				// const testData = '0x53d9d9100000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000a6d9c5f7d4de3cef51ad3b7235d79ccc95114de5000000000000000000000000a6d9c5f7d4de3cef51ad3b7235d79ccc95114daa';
-				// console.log(typeof(testABI))
+				
 				console.log("contract abi  : ", testABI);
 				console.log("raw data : ", testData);
 
@@ -245,24 +174,21 @@ class Contract extends Component<MyProps, MyState>{
 
 				this.setState({decodedDataLatest:decodedData})
 			})
-		// }
-		// catch{
-		// 	console.log('error');
-		// 	return;
-		// };
+		}
+		catch(err){
+			console.log('Error:', err);
+			return;
+		};
 	}
 
 	TxnRow = (props: any) => {
 		function handleClick(){
 			props.onClick(props.data);
 		}
-		// console.log(props)
 		return(
 			<tr className="" onClick={handleClick}>
 				<td className="" style={{textAlign:"center"}}>{props.data.id}</td>
 				<td className="" style={{textAlign:"center"}}>{moment.unix(parseInt(props.data.attributes.blockCreationTime)).local().toString()}</td>
-				{/* <td className="">{props.data.relationships.from.data.id}</td>
-				<td className="">{props.data.relationships.to.data.id}</td> */}
 			</tr>
 		)
 	}
@@ -318,7 +244,6 @@ class Contract extends Component<MyProps, MyState>{
 
 
 		let rows = this.state.token_balances.map((tokenDetails: any) => {
-			// let {address, holder, amount, decimals, name, symbol, isERC20, isERC721, isERC777, isERC884, isERC998} = tokenDetails;
 			return <AccountTokenBalanceRow key={tokenDetails.address} data={tokenDetails}></AccountTokenBalanceRow>
 		})
 
@@ -472,21 +397,6 @@ class Contract extends Component<MyProps, MyState>{
 					</div>
 				</Container>
 			</div>
-
-
-
-			// 	<p>Enter Transaction Hash : </p>
-			// 	<input value={this.state.transaction_hash} onChange={(e)=>this.setState({transaction_hash:e.target.value})} ></input>
-			// 	<br />
-
-			// 	<button onClick={this.decodeParams}> get Decoded Parameters for the transaction </button>
-			// 	<p>{this.state.params}</p>
-
-			// 	{/* <button onClick={this.getTransactions}> get Transaction Details </button>
-			// 	<p>{this.state.transaction_details}</p>
-			// 	<p> Decoded Parameters : <br /> {this.state.params}</p> */}
-			// 	</div>
-			//  </Layout>
 		);
 	}
 }

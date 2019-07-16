@@ -19,9 +19,6 @@ const plugin = {
       // It can either be a component class or a functional component
       getContentComponent: async () => (props: any) => {
         return (
-          // <div>
-          //   <Contract />
-          // </div>
           new Contract(config.alethio_api_key)
         );
       },
@@ -74,21 +71,6 @@ const plugin = {
     return ["en-US"];
   },
 
-  // async http(request: RequestInfo): Promise<any> {
-  //   return new Promise(async resolve => {
-  //     let data = await fetch(request, {
-  //       method: "GET",
-  //       headers: {
-  //         username: "main_k5ua5idae7skpuciub5afanpxys3q"
-  //       }
-  //     });
-  //     console.log(await data.json());
-  //     // .then(response => console.log(response.json()))
-  //     // .then(body => {
-  //     //   resolve(body);
-  //     // });
-  //   });
-  // },
 
   async loadTranslations(locale: any) {
     return await import("./translation/" + locale + ".json");
